@@ -6,10 +6,10 @@ $smarty = new Smarty();
 $smarty->template_dir = 'templates/';
 $smarty->compile_dir  = 'templates_c/';
 
-$smarty->assign('test1', '1行目です。');
+$smarty->assign('test1', '11行目です。');
 $smarty->assign('test2', '2行目です。');
 $smarty->assign('test3', '3行目です。');
 
-$smarty->display('test.html');
+$smarty->display('form.html');
 
 ?>
