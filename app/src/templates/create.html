@@ -1,0 +1,23 @@
+{extends file='layout.html'}
+{block name=title}ゲスト登録 | PHP Guestbook{/block}
+{block name=body}
+  <h1>ゲスト登録</h1>
+  <form>
+    <div class="mb-3">
+      <label for="Name" class="form-label">名前</label>
+      <input type="text" class="form-control" id="Name" aria-describedby="nameHelp">
+      <div id="nameHelp" class="form-text">名前を入力してください</div>
+    </div>
+    <div class="mb-3">
+      <label for="Email" class="form-label">メールアドレス</label>
+      <input type="email" class="form-control" id="Email" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">E-Mailアドレスを入力してください</div>
+    </div>
+    <div class="mb-3">
+      <label for="Address" class="form-label">住所</label>
+      <input type="text" class="form-control" id="Name" aria-describedby="addressHelp">
+      <div id="addressHelp" class="form-text">住所を入力してください</div>
+    </div>
+    <button type="submit" class="btn btn-primary">登録</button> 
+  </form>
+{/block}
