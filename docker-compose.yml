@@ -1,11 +1,18 @@
 version: '3'
 services:
+  # PHP Web Application
   web:
-    build: app
+    container_name: guestbook-web
+    build: web
     ports:
     - "5000:80"
+    depends_on:
+      - db
+      
+  # MySQL Database
   db:
     image: mysql:5.7
+    container_name: guestbook-db
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: guestbook
@@ -19,3 +26,17 @@ services:
     - ./db/sql:/docker-entrypoint-initdb.d
     ports:
     - 3306:3306
+
+  # phpMyAdmin
+  phpmyadmin:
+    container_name: guestbook-phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    environment:
+    - PMA_ARBITRARY=1
+    - PMA_HOSTS=guestbook-db
+    - PMA_USER=root
+    - PMA_PASSWORD=root
+    ports:
+    - 5001:80
+    depends_on:
+      - db
