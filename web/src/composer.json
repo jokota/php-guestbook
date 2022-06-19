@@ -1,5 +1,6 @@
 {
   "require": {
-      "smarty/smarty": "4.1.0"
+      "smarty/smarty": "4.1.0",
+      "monolog/monolog": "1.27.0"
   }
 }
