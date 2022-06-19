@@ -4,11 +4,16 @@ services:
   web:
     container_name: guestbook-web
     build: web
+    environment:
+      DB_HOST: guestbook-db
+      DB_NAME: guestbook
+      DB_USER: guestbook
+      DB_PASSWORD: guestbook
     ports:
     - "5000:80"
     depends_on:
       - db
-      
+
   # MySQL Database
   db:
     image: mysql:5.7
