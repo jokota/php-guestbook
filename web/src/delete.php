@@ -7,9 +7,9 @@ try {
   $dbh = new PDO($dsn, $db_user, $db_password);
 
   // クエリの実行
-  $query = "INSERT INTO `guest` (`name`, `email`, `address`) VALUES (?, ?, ?)";
+  $query = "DELETE FROM `guest` WHERE `id` = ?";
   $stmt = $dbh->prepare($query);
-  $stmt->execute(array($_POST['Name'], $_POST['Email'], $_POST['Address']));
+  $stmt->execute(array($_POST['id']));
 
 } catch(PDOException $e) {
 
@@ -22,6 +22,6 @@ try {
 // DB接続を閉じる
 $dbh = null;
 
-$message = "ゲスト登録しました";
+$message = "ゲスト削除しました";
 $smarty->assign('message', $message);
-$smarty->display('create.html');
+$smarty->display('delete.html');
