@@ -17,9 +17,9 @@ http://localhost:5001
 
 ## db
 
-dataが消せなくなった時のトラブルシュート
+dataフォルダの消し方
 
 ```
-cd data
+cd db
 docker run --rm -v $(pwd):/app -w /app alpine rm -rf data
 ```
