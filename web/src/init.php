@@ -6,7 +6,6 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 $log = new Logger('guestbook');
-$log->info("get Guest List");
 
 // 変数を初期化
 $db_host      = getenv('DB_HOST');

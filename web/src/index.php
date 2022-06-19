@@ -1,6 +1,9 @@
 <?php
 require './init.php';
 
+// ログを出力
+$log->info("get Guest List");
+
 // 変数を初期化
 $rows = [];
 
