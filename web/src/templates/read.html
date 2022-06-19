@@ -1,0 +1,28 @@
+{extends file='layout.html'}
+{block name=title}ゲスト情報 | PHP Guestbook{/block}
+{block name=body}
+  <h1>ゲスト情報</h1>
+  <form action="/update.php" method="post" class="mt-5">
+    <div class="mb-3">
+      <label for="Name" class="form-label">名前</label>
+      <input type="text" name="Name" id="Name" class="form-control" aria-describedby="nameHelp" value="{$guest.name}" required>
+      <div id="nameHelp" class="form-text">名前を入力してください</div>
+    </div>
+    <div class="mb-3">
+      <label for="Email" class="form-label">メールアドレス</label>
+      <input type="email" name="Email" id="Email" class="form-control" aria-describedby="emailHelp" value="{$guest.email}" required>
+      <div id="emailHelp" class="form-text">E-Mailアドレスを入力してください</div>
+    </div>
+    <div class="mb-3">
+      <label for="Address" class="form-label">住所</label>
+      <input type="text" name="Address" id="Address" class="form-control" aria-describedby="addressHelp" value="{$guest.address}" required>
+      <div id="addressHelp" class="form-text">住所を入力してください</div>
+    </div>
+    <input type="hidden" name="id" value="{$guest.id}">
+    <button type="submit" class="btn btn-success">更新</button>
+  </form>
+  <form action="/delete.php" method="post" class="mt-1">
+    <input type="hidden" name="id" value="{$guest.id}">
+    <button type="submit" class="btn btn-danger">削除</button>
+  </form>
+{/block}

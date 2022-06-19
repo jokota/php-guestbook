@@ -14,7 +14,7 @@
     <tbody>
       {section name=guest loop=$guests}
       <tr>
-        <td>{$guests[guest].name}</td>
+        <td><a href="/read.php?id={$guests[guest].id}">{$guests[guest].name}</a></td>
         <td>{$guests[guest].email}</td>
         <td>{$guests[guest].address}</td>
       </tr>
