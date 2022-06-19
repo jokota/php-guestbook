@@ -1,12 +1,22 @@
 <?php
 require './vendor/autoload.php';
 
+// 変数を初期化
 $db_host      = getenv('DB_HOST');
 $db_name      = getenv('DB_NAME');
 $db_user      = getenv('DB_USER');
 $db_password  = getenv('DB_PASSWORD');
 
 $dsn      = "mysql:dbname=$db_name;host=$db_host";
+
+$rows = [];
+
+// Smartyを初期化
+$smarty = new Smarty();
+
+$smarty->template_dir = 'templates/';
+$smarty->compile_dir  = 'templates_c/';
+
 
 // DBへ接続
 try {
@@ -21,24 +31,16 @@ try {
   $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 } catch(PDOException $e) {
-  print("データベースの接続に失敗しました".$e->getMessage());
+  $smarty->assign('message', "データベースの接続に失敗しました　" . $e->getMessage());
+  $smarty->display('error.html');
   die();
 }
 
 // 接続を閉じる
 $dbh = null;
 
-$smarty = new Smarty();
-
-$smarty->template_dir = 'templates/';
-$smarty->compile_dir  = 'templates_c/';
-
-$smarty->assign('test1', '11行目です。');
-$smarty->assign('test2', '2行目です。');
-$smarty->assign('test3', '3行目です。');
-
+// データの取得に成功した場合
 $smarty->assign('guests', $rows);
-
 $smarty->display('index.html');
 
 ?>
