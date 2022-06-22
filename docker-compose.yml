@@ -3,7 +3,7 @@ services:
   # PHP Web Application
   web:
     container_name: guestbook-web
-    build: web
+    build: ./web
     environment:
       DB_HOST: guestbook-db
       DB_NAME: guestbook
