@@ -10,7 +10,7 @@ services:
       DB_USER: guestbook
       DB_PASSWORD: guestbook
     ports:
-    - "5000:80"
+    - "30201:80"
     depends_on:
       - db
 
@@ -42,6 +42,6 @@ services:
     - PMA_USER=root
     - PMA_PASSWORD=root
     ports:
-    - 5001:80
+    - 30202:80
     depends_on:
       - db
