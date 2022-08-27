@@ -15,16 +15,9 @@ spec:
       labels:
         app: php-guestbook-web
     spec:
-      initContainers:
-      - name: php-guestbook-init
-        image: docker.io/bitnami/mysql:8.0.30-debian-11-r6
-        command: ['sh', '-c', "echo Hell world"]
-        envFrom:
-        - configMapRef:
-            name: php-guestbook-config
       containers:
       - name: php-guestbook-web
-        image: ghcr.io/jokota/php-guestbook-web:202208241654
+        image: php-guestbook-web
         envFrom:
         - configMapRef:
             name: php-guestbook-config
