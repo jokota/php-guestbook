@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: php-guestbook-web
+  name: php-guestbook-web
+  namespace: php-guestbook
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-guestbook-web
+  template:
+    metadata:
+      labels:
+        app: php-guestbook-web
+    spec:
+      initContainers:
+      - name: php-guestbook-init
+        image: docker.io/bitnami/mysql:8.0.30-debian-11-r6
+        command: ['sh', '-c', "echo Hell world"]
+        envFrom:
+        - configMapRef:
+            name: php-guestbook-config
+      containers:
+      - name: php-guestbook-web
+        image: ghcr.io/jokota/php-guestbook-web:202208241654
+        envFrom:
+        - configMapRef:
+            name: php-guestbook-config
