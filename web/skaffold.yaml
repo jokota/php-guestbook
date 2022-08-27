@@ -3,6 +3,9 @@ kind: Config
 build:
   artifacts:
   - image: php-guestbook-web
+    sync:
+      infer:
+        - '**/*'
 deploy:
   kubectl:
     manifests:
