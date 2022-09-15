@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: php-guestbook-web
+  name: php-guestbook-web
+  namespace: php-guestbook
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-guestbook-web
+  template:
+    metadata:
+      labels:
+        app: php-guestbook-web
+    spec:
+      containers:
+      - name: php-guestbook-web
+        image: php-guestbook-web
+        envFrom:
+        - configMapRef:
+            name: php-guestbook-config

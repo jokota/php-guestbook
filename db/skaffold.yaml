@@ -1,12 +1,25 @@
 apiVersion: skaffold/v2beta29
 kind: Config
-deploy:
-  helm:
-    releases:
-    - name: mysql-release
-      repo: https://charts.bitnami.com/bitnami 
-      remoteChart: mysql
-      namespace: php-guestbook
-      createNamespace: true
-      valuesFiles:
-        - values.yaml
+profiles:
+- name: localhost
+  deploy:
+    helm:
+      releases:
+      - name: mysql-release
+        repo: https://charts.bitnami.com/bitnami 
+        remoteChart: mysql
+        namespace: php-guestbook
+        createNamespace: true
+        valuesFiles:
+          - values.yaml
+- name: envy
+  deploy:
+    helm:
+      releases:
+      - name: mysql-release
+        repo: https://charts.bitnami.com/bitnami 
+        remoteChart: mysql
+        namespace: php-guestbook
+        createNamespace: true
+        valuesFiles:
+          - values.yaml
