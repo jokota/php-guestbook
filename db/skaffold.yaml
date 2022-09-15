@@ -11,7 +11,7 @@ profiles:
         namespace: php-guestbook
         createNamespace: true
         valuesFiles:
-          - values.yaml
+          - values/localhost.yaml
 - name: envy
   deploy:
     helm:
@@ -22,4 +22,4 @@ profiles:
         namespace: php-guestbook
         createNamespace: true
         valuesFiles:
-          - values.yaml
+          - values/envy.yaml
