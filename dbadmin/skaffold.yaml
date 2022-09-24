@@ -3,7 +3,7 @@ kind: Config
 deploy:
   helm:
     releases:
-      - name: phpmyadmin
+      - name: phpmyadmin-release
         repo: https://charts.bitnami.com/bitnami 
         remoteChart: phpmyadmin
         valuesFiles:
