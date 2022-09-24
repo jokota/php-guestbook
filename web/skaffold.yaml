@@ -6,14 +6,7 @@ build:
     sync:
       infer:
         - '**/*'
-profiles:
-- name: localhost
-  deploy:
-    kubectl:
-      manifests:
-      - kubernetes/localhost/*
-- name: envy
-  deploy:
-    kubectl:
-      manifests:
-      - kubernetes/envy/*
+deploy:
+  kubectl:
+    manifests:
+    - kubernetes/*

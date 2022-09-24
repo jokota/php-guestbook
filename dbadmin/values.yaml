@@ -1,0 +1,6 @@
+ingress:
+  enabled: true
+  hostname: phpmyadmin.127.0.0.1.nip.io
+  pathType: Prefix
+db:
+  host: mysql-release.php-guestbook.svc.cluster.local

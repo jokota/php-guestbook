@@ -33,7 +33,7 @@ services:
     - 3306:3306
 
   # phpMyAdmin
-  phpmyadmin:
+  dbadmin:
     container_name: guestbook-phpmyadmin
     image: phpmyadmin/phpmyadmin
     environment:

@@ -2,4 +2,5 @@ apiVersion: skaffold/v2beta29
 kind: Config
 requires:
 - path: ./db
+- path: ./dbadmin
 - path: ./web
