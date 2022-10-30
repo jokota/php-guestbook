@@ -6,6 +6,7 @@ deploy:
       - name: phpmyadmin-release
         repo: https://charts.bitnami.com/bitnami 
         remoteChart: phpmyadmin
+        version: 10.3.5
         namespace: php-guestbook
         valuesFiles:
           - values.yaml

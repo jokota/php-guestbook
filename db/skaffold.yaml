@@ -6,6 +6,7 @@ deploy:
     - name: mysql-release
       repo: https://charts.bitnami.com/bitnami 
       remoteChart: mysql
+      version: 9.4.1
       namespace: php-guestbook
       createNamespace: true
       valuesFiles:
